@@ -1,0 +1,9 @@
+//CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-task-SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN
+import { task as SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN } from './sd-services/task';
+
+export const UserRoutes = [
+    //CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY
+//CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY-task-SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN
+SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN,
+];

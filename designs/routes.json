@@ -1,0 +1,20 @@
+{
+    "routes": [
+        {
+            "path": "form",
+            "component": "FormComponent",
+            "pathMatch": ""
+        },
+        {
+            "path": "''",
+            "redirectTo": "form",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "",
+            "redirectTo": "form"
+        }
+    ]
+}

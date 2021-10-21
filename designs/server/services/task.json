@@ -1,0 +1,171 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN",
+        "type": "tab",
+        "createdDate": "2021-10-19T08:11:22.476Z",
+        "label": "task",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "task",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_PUA8WsB5DhTc8189",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "insert user data",
+        "path": "/add",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/add": {
+                "post": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_1edukCxjKckFHy4Z"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "task",
+        "functionName": "sd_PUA8WsB5DhTc8189"
+    },
+    {
+        "id": "sd_1edukCxjKckFHy4Z",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nbh.local.query=\"INSERT INTO users(firstName,lastName,email,phone,dob,gender,pan,adhar,password,nationality,maritialStatus,address,city,state,country,pincode) VALUES(\"+\n\"'\"+bh.input.body.firstName+\"','\"+bh.input.body.lastName+\n\"','\"+bh.input.body.email+\"','\"+bh.input.body.phone+\n\"','\"+bh.input.body.dob+\"','\"+bh.input.body.gender+\n\"','\"+bh.input.body.pan+\"','\"+bh.input.body.adhar+\n\"','\"+bh.input.body.password+\"','\"+bh.input.body.nationality+\n\"','\"+bh.input.body.maritialStatus+\"','\"+bh.input.body.adhar+\n\"','\"+bh.input.body.city+\"','\"+bh.input.body.state+\n\"','\"+bh.input.body.country+\"','\"+bh.input.body.pincode+\"')\";\n\n    ",
+        "functionName": "sd_1edukCxjKckFHy4Z",
+        "category": "Function",
+        "x": 220,
+        "y": 60,
+        "wires": [
+            [
+                "sd_3e2CpDH04lLOgPqm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3e2CpDH04lLOgPqm",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_p4AN1BhGXQgojdxk",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "query"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "postgres",
+        "functionName": "sd_3e2CpDH04lLOgPqm",
+        "category": "Storage",
+        "x": 345,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Bw57zd3h22SZEEmL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Bw57zd3h22SZEEmL",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_1e9m8rbQgaP6c4BN",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "str",
+            "value": "inserting user data successfully",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": 200,
+            "obj": "\"inserting user data successfully\"",
+            "send": "\"inserting user data successfully\""
+        },
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_Bw57zd3h22SZEEmL",
+        "category": "HTTP",
+        "x": 480,
+        "y": 60,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

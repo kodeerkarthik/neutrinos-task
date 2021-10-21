@@ -1,0 +1,115 @@
+<div fxLayout="row wrap" style="height:100vh" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+    <h1 style="margin-bottom:30px">
+      USER DETAILS FORM</h1>
+    <form [formGroup]="page.userform" class="form" (ngSubmit)="submitUser()">
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false">
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="First name" [required]="false" formControlName="firstName">
+          <mat-error align="start" *ngIf="page.userform.controls.firstName?.errors?.required">First name is required</mat-error>
+          <mat-label>First name</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Last name" [required]="false" lastName>
+          <mat-label>Last name</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Email" [required]="false" formControlName="email">
+          <mat-error align="start" *ngIf="page.userform.controls.email?.errors?.required">Email is required</mat-error>
+          <mat-error align="start" *ngIf="page.userform.controls.email?.errors?.pattern">Invalid Email</mat-error>
+          <mat-label>Email</mat-label>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between space-between" [fxShow]="true" [fxHide]="false">
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Phone" [required]="false" formControlName="phone">
+          <mat-error align="start" *ngIf="page.userform.controls.phone?.errors?.required">Phone number is required</mat-error>
+          <mat-error align="start" *ngIf="page.userform.controls.phone?.errors?.pattern">Invalid phone number</mat-error>
+          <mat-label>phone</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;">
+          <input matInput placeholder="Date of birth" [matDatepicker]="picker" formControlName="dob" [required]="false" [disabled]="false">
+          <mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+          <mat-datepicker #picker [disabled]="false" startView="month"></mat-datepicker>
+          <mat-error align="start" *ngIf="page.userform.controls.dob?.errors?.required">Select Date of birth</mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-select formControlName="gender" class="form-input" placeholder="Gender" [required]="false">
+            <mat-option [value]="&apos;male&apos;" disabled="false">Male</mat-option>
+            <mat-option [value]="&apos;female&apos;" disabled="false">Female</mat-option>
+            <mat-option [value]="&apos;others&apos;" disabled="false">Others</mat-option>
+          </mat-select>
+          <mat-error align="start" *ngIf="page.userform.controls.gender?.errors?.required">Select Gender</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false">
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="PAN number" [required]="false" formControlName="pan">
+          <mat-error align="start" *ngIf="page.userform.controls.pan?.errors?.required">PAN number is required</mat-error>
+          <mat-error align="start" *ngIf="page.userform.controls.pan?.errors?.pattern">Invalid PAN number</mat-error>
+          <mat-label>PAN</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="Adhar number" [required]="false" formControlName="adhar">
+          <mat-error align="start" *ngIf="page.userform.controls.adhar?.errors?.required">Adhar is required</mat-error>
+          <mat-error align="start" *ngIf="page.userform.controls.adhar?.errors?.pattern">Invalid Adhar number</mat-error>
+          <mat-label>Adhar</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput type="password" placeholder="Password" [required]="false" formControlName="password">
+          <mat-error align="start" *ngIf="page.userform.controls.password?.errors?.required">Password is required</mat-error>
+          <mat-error align="start" *ngIf="page.userform.controls.password?.errors?.pattern">Invalid Password</mat-error>
+          <mat-label>Password</mat-label>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false" [matAutocomplete]="nationality">
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-select formControlName="nationality" class="form-input" placeholder="Nationality" [required]="false">
+            <mat-option [value]="&apos;Afghanistan&apos;" disabled="false">Afghanistan</mat-option>
+            <mat-option [value]="&apos;Australia&apos;" disabled="false">Australia</mat-option>
+            <mat-option [value]="&apos;Bangladesh&apos;" disabled="false">Bangladesh</mat-option>
+            <mat-option [value]="&apos;Canada&apos;" disabled="false">Canada</mat-option>
+            <mat-option [value]="&apos;France&apos;" disabled="false">France</mat-option>
+            <mat-option [value]="&apos;Indian&apos;" disabled="false">Indian</mat-option>
+            <mat-option [value]="&apos;Japanese&apos;" disabled="false">Japanese</mat-option>
+          </mat-select>
+          <mat-error align="start" *ngIf="page.userform.controls.nationality?.errors?.required">Select Nationality</mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-select formControlName="maritialStatus" placeholder="Maritial status" [required]="false">
+            <mat-option [value]="&apos;married&apos;" disabled="false">Married</mat-option>
+            <mat-option [value]="&apos;unmarried&apos;" disabled="false">Un-married</mat-option>
+          </mat-select>
+          <mat-error align="start" *ngIf="page.userform.controls.maritialStatus?.errors?.required">Select Maritial status</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <textarea matInput formControlName="address" placeholder="Address" [required]="false"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false">
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="city" [required]="false" formControlName="city">
+          <mat-error align="start" *ngIf="page.userform.controls.city?.errors?.required">City is required</mat-error>
+          <mat-label>City</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="state" [required]="false" formControlName="state">
+          <mat-error align="start" *ngIf="page.userform.controls.state?.errors?.required">Stateis required</mat-error>
+          <mat-label>State</mat-label>
+        </mat-form-field>
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="pincode" [required]="false" formControlName="pincode">
+          <mat-error align="start" *ngIf="page.userform.controls.pincode?.errors?.required">Pincode is requird</mat-error>
+          <mat-label>Pincode</mat-label>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+        <mat-form-field class="form-input" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput placeholder="country" [required]="false" formControlName="country">
+          <mat-error align="start" *ngIf="page.userform.controls.country?.errors?.required">Country is required</mat-error>
+          <mat-label>Country</mat-label>
+        </mat-form-field><button mat-button style="background:blue; color:white" class="sbt-btn" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

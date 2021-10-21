@@ -1,0 +1,216 @@
+[
+    {
+        "id": "sd_aqZqXeWdIfzY5t2E",
+        "type": "tab",
+        "createdDate": "2021-10-18T15:43:48.885Z",
+        "label": "Form",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "FormComponent"
+    },
+    {
+        "id": "sd_IXBWzhJFyVUomnZU",
+        "type": "OnInit",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_IXBWzhJFyVUomnZU",
+        "category": "Lifecycle Events",
+        "x": 25,
+        "y": 40,
+        "wires": [
+            [
+                "sd_pcSoiDHdisqRmAZA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "FormComponent"
+    },
+    {
+        "id": "sd_pcSoiDHdisqRmAZA",
+        "type": "PageVariables",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "userform",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_pcSoiDHdisqRmAZA",
+        "category": "Function",
+        "x": 185,
+        "y": 40,
+        "wires": [
+            [
+                "sd_ooluufDtwXWHbROw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ooluufDtwXWHbROw",
+        "type": "UseDependency",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "fb"
+                },
+                "injectable": true
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_ooluufDtwXWHbROw",
+        "category": "Function",
+        "x": 345,
+        "y": 40,
+        "wires": [
+            [
+                "sd_9fSXGWfC43Iu3JXe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9fSXGWfC43Iu3JXe",
+        "type": "Script",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.userform = page.fb.group({\n    firstName:['',[Validators.required]],\n    lastName:[''],\n    email:['',[Validators.required,Validators.email,  Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\\\.[a-z]{2,3}')]],\n    phone:['',[Validators.required,Validators.pattern('^([0|\\+[0-9]{1,5})?([7-9][0-9]{9})$')]],\n    dob:[new Date(),[Validators.required]],\n    gender:['',[Validators.required]],\n    pan:['',[Validators.required,Validators.pattern('^([A-Z,a-z]{5}[0-9]{4}[A-Z,a-z]{1})$')]],\n    adhar:['',[Validators.required,Validators.pattern('^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$')]],\n    password:['',[Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$')]],\n    nationality:['',[Validators.required]],\n    maritialStatus:['',[Validators.required]],\n    address:['',[Validators.required]],\n    city:['',[Validators.required]],\n    state:['',[Validators.required]],\n    country:['',[Validators.required]],\n    pincode:['',[Validators.required]],\n})\n\n",
+        "functionName": "sd_9fSXGWfC43Iu3JXe",
+        "category": "Function",
+        "x": 445,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KcQx3P1i6iraz8nn",
+        "type": "PageStart",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submitUser",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submitUser",
+        "category": "General",
+        "x": 45,
+        "y": 160,
+        "wires": [
+            [
+                "sd_tjdQ03RZSzcvScUM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "FormComponent"
+    },
+    {
+        "id": "sd_tjdQ03RZSzcvScUM",
+        "type": "UseDependency",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "userService",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "userservice"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "app/sd-services/userService",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_tjdQ03RZSzcvScUM",
+        "category": "Function",
+        "x": 225,
+        "y": 160,
+        "wires": [
+            [
+                "sd_kw5NNIL0wGESRm8P"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_kw5NNIL0wGESRm8P",
+        "type": "Script",
+        "z": "sd_aqZqXeWdIfzY5t2E",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(page.userform.invalid){\n    console.log(\"invalid form\")\n    return\n}\npage.userservice.insertUser(page.userform.value);",
+        "functionName": "sd_kw5NNIL0wGESRm8P",
+        "category": "Function",
+        "x": 425,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

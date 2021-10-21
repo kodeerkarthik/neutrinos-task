@@ -1,0 +1,22 @@
+/*Importing default angular material css theme. */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "nDefaults.scss";
+
+.form-input{
+    width:20vw;
+}
+.mat-form-field-wrapper{
+    width: 20vw;
+}
+.form {
+    background: #efefef7a;
+    width: 80vw;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px;
+}
+.sbt-btn{
+    width: 20vw;
+    margin-left: 10vw !important;
+}
